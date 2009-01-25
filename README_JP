@@ -1,0 +1,64 @@
+sfMobileJP plugin
+=================
+
+この"sfMobileJPlugin"は日本国内の3キャリア(DoCoMo/SoftBank/EZWeb)向けコンテンツをsymfony1.2xで作る際に便利なクラス郡になります。
+
+主な機能は以下の通りです。
+-------------------------
+ * Net_UserAgent_Mobile をsymfony上から使用できるようになります
+ * URLを生成(link_to helper等)する場合、DoCoMo端末に対しては自動でUID取得のためのパラメータを付与します(imodeID or uid)
+ * テンプレートを切り分けることが可能になります。(モバイル共通、各キャリア毎に1テンプレート等)
+ * ...
+
+使用方法
+--------
+[1] $sf_app/config/settings.yml
+    --------------------------
+    all:
+        .settings:
+            mobile_jp_net_ua_mobile_path  :   'Net/UserAgent/Mobile.php'          => is default
+            mobile_jp_use_uid_for_docomo  :   off                                 ※1
+            mobile_jp_use_guid_for_docomo :   on                                  ※2
+            mobile_jp_is_required_uid     :   on                                  => UIDを必須とする場合はtrueです
+            mobile_jp_ng_uid_url          :   '$model/$action' or 'http://...'    => UIDを取得できなかった場合に遷移する先を指定してください
+            mobile_jp_is_browser_cache    :   off
+            mobile_jp_is_ng_nonmobile     :   on                                  => 3キャリア以外のアクセスを禁止
+            mobile_jp_ng_nonmobile_url    :   '$model/$action' or 'http://...'    => 3キャリア以外のアクセスの場合に遷移するURL
+            mobile_jp_no_uid_ok_pages     :                                       => UIDが取得できなくても表示OKな箇所を定義(SSLの時DoCoMoでは取得不可能)
+                - '$model/$action'                                                => ng_nonmobile_url をここに登録しておくこと！
+                - '$model/$action'
+                - '$model/$action'
+    ※1,2はどちらか片方のみonもしくはoffにしてください
+
+[2] $sf_app/config/filters.yml
+    --------------------------
+    mobile:
+        class: sfMobileJPFilter
+
+[3] $sf_app/config/factories.yml
+    ---------------------
+    all:
+        controller:
+            class:  sfFrontWebMobileJPController        <- 変更
+
+[4] $sf_app/config/module.yml                           <- ファイルが存在しない場合は作成する
+    ---------------------
+    all:
+        view_class: sfPHP4MobileJP                      <- 追加 or 変更
+
+[5] templateの設置方法
+    $sf_app/modules/$sf_module/templates/mobile/        <- モバイル共通(キャリア別が無い場合はコレが適用)
+    $sf_app/modules/$sf_module/templates/docomo/        <- DoCoMo用   テンプレートはここに
+    $sf_app/modules/$sf_module/templates/softbank/      <- SoftBank用 "
+    $sf_app/modules/$sf_module/templates/ezweb/         <- EZweb用    "
+    $sf_app/modules/$sf_module/templates/               <- PC用       "
+
+[6] view.ymlの設置方法
+    $sf_app/config/view.yml                             <- 以下の何れも存在しない場合はコレ
+    $sf_app/config/view_mobile.yml                      <- モバイル共通(キャリア別view_xxx.ymlが無い場合はコレが適用)
+    $sf_app/config/view_docomo.yml                      <- DoCoMo用   view.yml はここに
+    $sf_app/config/view_softbank.yml                    <- SoftBank用 "
+    $sf_app/config/view_ezweb.yml                       <- EZweb用    "
+
+------------------------
+@author Masahiro Funakoshi <mfunakoshi@gmail.com>
