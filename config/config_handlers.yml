@@ -1,5 +1,0 @@
-config/view_*.yml:
-  class:    sfViewConfigHandler
-
-modules/*/config/view_*.yml:
-  class:    sfViewConfigHandler
