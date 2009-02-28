@@ -13,8 +13,8 @@
  <date>2009-02-28</date>
  <time>17:03:46</time>
  <version>
-  <release>0.0.5</release>
-  <api>0.0.5</api>
+  <release>0.0.7</release>
+  <api>0.0.7</api>
  </version>
  <stability>
   <release>devel</release>
@@ -30,7 +30,7 @@
    <file md5sum="2e7f2097a0dcd169e116d683fe901d1a" name="lib/view/sfPHP4MobileJPView.class.php" role="data" />
    <file md5sum="6329ed6062c1e9503e79a874aa9eb90d" name="lib/utils/sfMobileJPUtils.class.php" role="data" />
    <file md5sum="d1404f31cfcf7d1bfa6426b5380b5bb4" name="README" role="data" />
-   <file md5sum="b6b3d89d9436ad5bf7da0.0.53f7da0e" name="LICENSE" role="data" />
+   <file md5sum="b6b3d89d9436ad5bf7da0.0.73f7da0e" name="LICENSE" role="data" />
   </dir>
  </contents>
  <dependencies>

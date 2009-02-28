@@ -8,7 +8,7 @@ Overview
 The main function is as follows:
 
     * I can easily use Net_UserAgent_Mobile from symfony.
-    * The parameter for acquiring UID or imodeID to a DoCoMo terminal is given automatically.
+    * The parameter for acquiring imodeID to a DoCoMo terminal is given automatically.
     * A career exception or a common template can be created separately.
     * etc...
 
@@ -19,14 +19,14 @@ This plugin needs "Net_UserAgent_Mobile" of the PEAR module.
 
 command line:
 
-    $ sudo pear install Net_UserAgent_Mobile
+    $ sudo pear install Net_UserAgent_Mobile-beta
 
 Installation
 ------------
 
 To install the plugin for a symfony project, the usual process is to use the symfony command line:
 
-    $ php symfony plugin:install sfMobileJPlugin
+    $ php symfony plugin:install -r <version> sfMobileJPlugin
 
 Clear the cache to enable the autoloading to find the new classes:
 
