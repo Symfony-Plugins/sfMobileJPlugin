@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfMobileJPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>for mobile contents plugin</summary>
+ <description>This plugin includes a convenient class for mobile contents stableoper.</description>
+ <lead>
+  <name>Masahiro Funakoshi</name>
+  <user>mfunakoshi</user>
+  <email>mfunakoshi@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-02-28</date>
+ <time>17:03:46</time>
+ <version>
+  <release>0.0.4</release>
+  <api>0.0.4</api>
+ </version>
+ <stability>
+  <release>devel</release>
+  <api>devel</api>
+ </stability>
+ <license uri="http://www.symfony-project.org/license">MIT license</license>
+ <notes>-</notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="44025a71d94c751087c5a81261106b11" name="config/config_handlers.yml" role="data" />
+   <file md5sum="ac3c4e2ed0a81d2818018145304b3db7" name="lib/controller/sfFrontWebMobileJPController.class.php" role="data" />
+   <file md5sum="f03320a8c987133c517be2a9f4a695d5" name="lib/filter/sfMobileJPFilter.class.php" role="data" />
+   <file md5sum="2e7f2097a0dcd169e116d683fe901d1a" name="lib/view/sfPHP4MobileJPView.class.php" role="data" />
+   <file md5sum="6329ed6062c1e9503e79a874aa9eb90d" name="lib/utils/sfMobileJPUtils.class.php" role="data" />
+   <file md5sum="d1404f31cfcf7d1bfa6426b5380b5bb4" name="README" role="data" />
+   <file md5sum="b6b3d89d9436ad5bf7da030f43f7da0e" name="LICENSE" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>2.0.0</max>
+    <exclude>1.2.1</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+ </changelog>
+</package>
