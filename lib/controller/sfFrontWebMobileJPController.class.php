@@ -52,6 +52,10 @@ class sfFrontWebMobileJPController extends sfFrontWebController
         if ($agent->isDoCoMo()) {
             $url .= ((strpos($url, '?') === false) ? '?' : '&') . sfConfig::get('mobile_jp_query_string_for_docomo_uid', 'guid=ON');
         }
+        
+        if ((bool)ini_get('session.use_trans_sid')) {
+            $url .= ((strpos($url, '?') === false) ? '?' : '&') . SID;
+        }
 
         if ($fragment) {
             $url .= '#'.$fragment;
