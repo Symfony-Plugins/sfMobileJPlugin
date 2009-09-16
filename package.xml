@@ -10,7 +10,7 @@
   <email>mfunakoshi@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2009-09-16</date>
+ <date>2009-09-17</date>
  <time>00:51:46</time>
  <version>
   <release>0.0.10</release>
@@ -61,7 +61,7 @@
       <release>devel</release>
       <api>devel</api>
     </stability>
-    <date>2009-09-16</date>
+    <date>2009-09-17</date>
     <notes>
       * fix from symfony 1.0.x
     </notes>
