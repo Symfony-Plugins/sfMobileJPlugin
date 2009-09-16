@@ -10,11 +10,11 @@
   <email>mfunakoshi@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2009-02-28</date>
- <time>17:03:46</time>
+ <date>2009-09-16</date>
+ <time>00:51:46</time>
  <version>
-  <release>0.0.9</release>
-  <api>0.0.9</api>
+  <release>0.0.10</release>
+  <api>0.0.10</api>
  </version>
  <stability>
   <release>devel</release>
@@ -24,13 +24,13 @@
  <notes>-</notes>
  <contents>
   <dir name="/">
-   <file md5sum="44025a71d94c751087c5a81261106b11" name="config/config_handlers.yml" role="data" />
-   <file md5sum="ac3c4e2ed0a81d2818018145304b3db7" name="lib/controller/sfFrontWebMobileJPController.class.php" role="data" />
-   <file md5sum="f03320a8c987133c517be2a9f4a695d5" name="lib/filter/sfMobileJPFilter.class.php" role="data" />
-   <file md5sum="2e7f2097a0dcd169e116d683fe901d1a" name="lib/view/sfPHP4MobileJPView.class.php" role="data" />
-   <file md5sum="6329ed6062c1e9503e79a874aa9eb90d" name="lib/utils/sfMobileJPUtils.class.php" role="data" />
-   <file md5sum="d1404f31cfcf7d1bfa6426b5380b5bb4" name="README" role="data" />
-   <file md5sum="b6b3d89d9436ad5bf7da0.0.93f7da0e" name="LICENSE" role="data" />
+   <file name="config/config_handlers.yml" role="data" />
+   <file name="lib/controller/sfFrontWebMobileJPController.class.php" role="data" />
+   <file name="lib/filter/sfMobileJPFilter.class.php" role="data" />
+   <file name="lib/view/sfPHP4MobileJPView.class.php" role="data" />
+   <file name="lib/utils/sfMobileJPUtils.class.php" role="data" />
+   <file name="README" role="data" />
+   <file name="LICENSE" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -44,13 +44,27 @@
    <package>
     <name>symfony</name>
     <channel>pear.symfony-project.com</channel>
-    <min>1.2.0</min>
-    <max>2.0.0</max>
+    <min>1.0.0</min>
+    <max>1.2.0</max>
     <exclude>1.2.1</exclude>
    </package>
   </required>
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+    <version>
+      <release>0.0.10</release>
+      <api>0.0.10</api>
+    </version>
+    <stability>
+      <release>devel</release>
+      <api>devel</api>
+    </stability>
+    <date>2009-09-16</date>
+    <notes>
+      * fix from symfony 1.0.x
+    </notes>
+    </release>
  </changelog>
 </package>
