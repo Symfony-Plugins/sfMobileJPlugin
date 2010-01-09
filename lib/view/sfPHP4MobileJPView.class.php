@@ -6,9 +6,9 @@ class sfPHP4MobileJPView extends sfPHPView
     {
         $agent = $this->context->getRequest()->getAttribute('agent');
         if ($agent->isDoCoMo() || $agent->isSoftBank() || $agent->isEZweb()) {
-            $sf_version = preg_replace('/\-\w+$/', '', file_get_contents(sfConfig::get('sf_symfony_lib_dir').'/VERSION'));
-            if ($sf_version > 1.1 && $sf_version < 1.3) {
-              // for 1.2.x
+            $sf_version = defined(SYMFONY_VERSION) ? (int)SYMFONY_VERSION : 1.0;
+            if ($sf_version > 1.0 && $sf_version < 1.5) {
+              // for 1.1.x - 1.4.x
               $this->configureForMobile($agent);
             } else {
               // for 1.0.x
@@ -19,9 +19,8 @@ class sfPHP4MobileJPView extends sfPHPView
         }
     }
 
-
     // for symfony 1.0
-    private function configureForMobile10($agent)
+    protected function configureForMobile10($agent)
     {
         // store our current view
         $actionStackEntry = $this->getContext()->getActionStack()->getLastEntry();
@@ -68,7 +67,7 @@ class sfPHP4MobileJPView extends sfPHPView
     }
 
     // for symfony 1.2 -
-    private function configureForMobile($agent)
+    protected function configureForMobile($agent)
     {
         // store our current view
         $this->context->set('view_instance', $this);
@@ -109,7 +108,7 @@ class sfPHP4MobileJPView extends sfPHPView
         }
     }
 
-    private function getCareerCode($agent)
+    protected function getCareerCode($agent)
     {
         $code = null;
         switch (true) {

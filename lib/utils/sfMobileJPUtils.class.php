@@ -61,7 +61,64 @@ class sfMobileJPUtils
     // shortcut method for agent object
     public static function getAgent()
     {
-        return sfContext::getInstance()->getRequest()->getAttribute('agent');
+      $request = sfContext::getInstance()->getRequest();
+      $agent = $request->getAttribute('agent');
+      if (! $agent) {
+        if (!class_exists('Net_UserAgent_Mobile')) {
+          $er = error_reporting();
+            if ($er > E_STRICT) {
+              error_reporting($er - E_STRICT);
+            }
+          
+            $mobileUserAgent = sfConfig::get('sf_mobile_jp_net_ua_mobile_path', 'Net/UserAgent/Mobile.php');
+            require $mobileUserAgent;
+          }
+          
+          $agent = Net_UserAgent_Mobile::singleton();
+          $request->setAttribute('agent', $agent);
+      }
+    
+      return $agent;
     }
+    
+    public static function getUID()
+    {
+      $request = sfContext::getInstance()->getRequest();
+      $uid = $request->getAttribute('uid', null);
+      
+      if (! $uid) {
+        $agent = self::getAgent();
+        if ($agent->isDoCoMo()) {
+          $queryString = sfConfig::get('sf_mobile_jp_query_string_for_docomo_uid', 'guid=ON');
+          list($uidType, $uidValue) = split('=', $queryString);
+        
+          $uid = strtolower($uidType) == 'guid' ? $agent->getUID() : $request->getParameter($uidType, null);
+          if (empty($uid) || $uid == $uidValue) 
+            $uid = null;
+        } else {
+          $uid = $agent->getUID();
+          if (empty($uid)) $uid = null;
+        }
+        $request->setAttribute('uid', $uid);
+      }
 
+      return $uid;
+    }
+    
+    public static function getUIDShort()
+    {
+      $uid   = self::getUID();
+      $agent = self::getAgent();
+      if ($agent->isDoCoMo()) {
+        $queryString = sfConfig::get('sf_mobile_jp_query_string_for_docomo_uid', 'guid=ON');
+        list($uidType, $uidValue) = split('=', $queryString);
+        if ($uidType !== 'guid') {
+          $uid = substr($uid, 2, strlen($uid));
+        }
+      } else if ($agent->isSoftbank()) {
+          $uid = substr($uid, 1, strlen($uid));
+      }
+    
+      return $uid; 
+    }
 }

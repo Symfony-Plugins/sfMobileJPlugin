@@ -12,7 +12,7 @@ class sfFrontWebMobileJPController extends sfFrontWebController
     $url   = parent::genUrl($parameters, $absolute);
     $request = $this->context->getRequest();
     $agent = $request->getAttribute('agent');
-    
+
     if ($agent->isDoCoMo())
       $url = $this->addParametersByURL($url, sfConfig::get('sf_mobile_jp_query_string_for_docomo_uid', 'guid=ON')); 
 

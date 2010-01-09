@@ -10,11 +10,11 @@
   <email>mfunakoshi@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2009-09-17</date>
+ <date>2010-01-10</date>
  <time>00:51:46</time>
  <version>
-  <release>0.0.10</release>
-  <api>0.0.10</api>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
  </version>
  <stability>
   <release>devel</release>
@@ -26,6 +26,7 @@
   <dir name="/">
    <file name="config/config_handlers.yml" role="data" />
    <file name="lib/controller/sfFrontWebMobileJPController.class.php" role="data" />
+   <file name="lib/storage/sfMobileJPSessionStorage.class.php" role="data" />
    <file name="lib/filter/sfMobileJPFilter.class.php" role="data" />
    <file name="lib/view/sfPHP4MobileJPView.class.php" role="data" />
    <file name="lib/utils/sfMobileJPUtils.class.php" role="data" />
@@ -45,8 +46,8 @@
     <name>symfony</name>
     <channel>pear.symfony-project.com</channel>
     <min>1.0.0</min>
-    <max>1.2.0</max>
-    <exclude>1.2.1</exclude>
+    <max>1.5.0</max>
+    <exclude>1.4.1</exclude>
    </package>
   </required>
  </dependencies>
@@ -55,7 +56,7 @@
   <release>
     <version>
       <release>0.0.10</release>
-      <api>0.0.10</api>
+      <api>0.0.11</api>
     </version>
     <stability>
       <release>devel</release>
@@ -63,7 +64,7 @@
     </stability>
     <date>2009-09-17</date>
     <notes>
-      * fix from symfony 1.0.x
+      * It variously made a change with the correction. 
     </notes>
     </release>
  </changelog>
